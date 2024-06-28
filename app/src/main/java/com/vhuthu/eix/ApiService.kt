@@ -15,26 +15,12 @@ data class Todo(
     var completed: Boolean
 )
 
-const val BASE_URL = "https://agrifund.tech/api/v2/"  // https://jsonplaceholder.typicode.com/
+const val BASE_URL = "https://agrifund.tech/api/v2/" 
 
 interface ApiService {
 
     @GET("farmers/portfolio")
     suspend fun getTodos(@Header("Authorization") token: String): List<Todos>
-
-//    companion object {
-//        var apiService: ApiService? = null
-//        fun getInstance(): ApiService {
-//            if (apiService == null) {
-//                apiService = Retrofit.Builder()
-//                    .baseUrl(BASE_URL)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build().create(ApiService::class.java)
-//            }
-//            return apiService!!
-//        }
-//    }
-
 
     companion object {
         private var apiService: ApiService? = null
@@ -60,8 +46,4 @@ interface ApiService {
             return apiService!!
         }
     }
-
-
-
-
 }
